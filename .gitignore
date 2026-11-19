@@ -5,3 +5,4 @@ labs/*/render/*.wav
 labs/*/render/list.txt
 labs/*/shots/
 node_modules/
+labs/*/dist/

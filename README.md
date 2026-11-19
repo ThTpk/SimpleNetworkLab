@@ -1,5 +1,7 @@
 # SimpleNetworkLab
 
+**▶ เปิดเล่นเลย → https://thtpk.github.io/SimpleNetworkLab/**
+
 แล็บเครือข่ายแบบอินเทอร์แอคทีฟ สร้างด้วย [SIMULAB](https://github.com/0xKapri) — หน้าเว็บไอโซเมตริกไฟล์เดียวที่เปิดออฟไลน์ได้ พร้อมวิดีโอ 60 fps
 
 An interactive isometric network lab: one offline HTML file plus a 60 fps video with sound.
@@ -14,7 +16,7 @@ An interactive isometric network lab: one offline HTML file plus a 60 fps video 
 
 | | |
 |---|---|
-| **หน้าแล็บ** | [`labs/labN1-cola/dist/index.html`](labs/labN1-cola/dist/index.html) — 543 KB ไฟล์เดียวจบ เปิดออฟไลน์ ไม่ต้องต่อเน็ต |
+| **หน้าแล็บ** | [`index.html`](index.html) — 543 KB ไฟล์เดียวจบ เปิดออฟไลน์ ไม่ต้องต่อเน็ต · เสิร์ฟอยู่ที่ [thtpk.github.io/SimpleNetworkLab](https://thtpk.github.io/SimpleNetworkLab/) |
 | **วิดีโอ** | [`labs/labN1-cola/render/labN1-cola.mp4`](labs/labN1-cola/render/labN1-cola.mp4) — 1500×1200 · 60 fps · 39.7 s · −14.5 LUFS |
 | **ที่มาของภาพ** | `model.js` (แบบจำลองล้วน) · `demo.js` (ฉาก บท พาเนล) · `demo.json` (ชื่อเรื่อง + ที่มาของตัวเลข) |
 
@@ -84,14 +86,22 @@ FIFO แบ่งแบนด์วิดท์ตามสัดส่วนท
 (ชุด asset เครือข่าย + ฟอนต์ไทย — ถ้าไม่ลง หน้าแล็บจะไม่มีอุปกรณ์และข้อความไทยจะไม่ขึ้น)
 
 ```bash
-SD=~/.claude/skills/simulab
+./build.sh                                           # -> index.html ที่ราก (หน้าที่ Pages เสิร์ฟ)
 
-node "$SD/tools/build.mjs"  labs/labN1-cola          # -> dist/index.html
+SD=~/.claude/skills/simulab
 node "$SD/tools/stills.mjs" labs/labN1-cola --w=620 --cols=3 3 9 17 23 27 37
 bash  "$SD/tools/video.sh"  labs/labN1-cola labN1-cola --preview
 bash  "$SD/tools/video.sh"  labs/labN1-cola labN1-cola
 node  "$SD/tools/cover.mjs" labs/labN1-cola
 ```
+
+`index.html` ที่รากคือผลลัพธ์ของ `build.sh` (ซึ่งก็อปมาจาก `labs/labN1-cola/dist/index.html`)
+ส่วน `labs/*/dist/` ไม่ได้เก็บใน git เพราะ build ใหม่ได้เสมอ — แก้ซอร์สแล้วรัน `./build.sh` ทุกครั้งก่อน commit
+
+### เผยแพร่
+
+เสิร์ฟด้วย GitHub Pages จาก branch `main` โฟลเดอร์ `/ (root)` — เปิด URL แล้วขึ้นหน้าแบบจำลองทันที
+ไม่มีหน้าคั่น `.nojekyll` อยู่ที่รากเพื่อไม่ให้ Jekyll เข้ามายุ่งกับไฟล์
 
 ---
 
