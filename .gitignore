@@ -1,0 +1,7 @@
+# สร้างใหม่ได้ด้วย tools/video.sh และ tools/stills.mjs — ไม่ต้องเก็บใน git
+labs/*/render/video_noaudio*.mp4
+labs/*/render/*-preview.mp4
+labs/*/render/*.wav
+labs/*/render/list.txt
+labs/*/shots/
+node_modules/
